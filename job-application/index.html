@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Now - OUTUNIQ Careers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div id="canvas-container"></div>
+  <div class="overlay"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">OUTUNIQ</a>
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../auth.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="apply-section">
+    <div class="apply-container">
+      <div class="apply-header">
+        <h1 class="apply-title">Join the <span class="highlight">OUTUNIQ</span></h1>
+        <p class="apply-subtitle">Submit your application and become part of a team building next-gen gaming
+          experiences.</p>
+      </div>
+
+      <form class="apply-form" id="applyForm" novalidate>
+        <div class="form-row">
+          <div class="input-group">
+            <label class="input-label" for="firstName">Canditate Name</label>
+            <span class="input-icon">C-N</span>
+            <input type="text" id="firstName" placeholder="Name" required>
+            <span class="error-msg"></span>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="lastName">Last Name</label>
+            <span class="input-icon">LN</span>
+            <input type="text" id="lastName" placeholder="Last name" required>
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <label class="input-label" for="email">Gmail Address</label>
+            <span class="input-icon">@</span>
+            <input type="email" id="email" placeholder="@.gmailcom" required>
+            <span class="error-msg"></span>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="phone">Phone Number</label>
+            <span class="input-icon">P</span>
+            <input type="tel" id="phone" placeholder="+91  _ _ _ _ _  _ _ _ _ _" required>
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="position">Position Applying For</label>
+          <span class="input-icon">R</span>
+          <select id="position" required>
+            <option value="" disabled selected>Select a position</option>
+            <option value="graphic-design">Graphic Design — Unity & Unreal game engine, Blender</option>
+            <option value="data-entry">Data Entry — MS - (Word & Excel), PowerBI</option>
+            <option value="web-design">Web Design — Internet based programming, Figma</option>
+            <option value="vfx-editor">VFX Editor — Premiere Pro, Photoshop, Illustrator, CapCut</option>
+          </select>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="qualification">Highest Qualification</label>
+          <span class="input-icon">Q</span>
+          <select id="qualification" required>
+            <option value="" disabled selected>Select qualification</option>
+            <option value="high-school">High School</option>
+            <option value="diploma">Diploma</option>
+            <option value="bachelor">Bachelor's Degree</option>
+            <option value="master">Master's Degree</option>
+            <option value="phd">PhD / Doctorate</option>
+          </select>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <label class="input-label" for="institution">Institution / University</label>
+            <span class="input-icon">I</span>
+            <input type="text" id="institution" placeholder="e.g. Anna University" required>
+            <span class="error-msg"></span>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="field">Field of Study</label>
+            <span class="input-icon">S</span>
+            <input type="text" id="field" placeholder="e.g. Computer Science" required>
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <label class="input-label" for="gradYear">Year of Passing</label>
+            <span class="input-icon">Y</span>
+            <select id="gradYear" required>
+              <option value="" disabled selected>Select year</option>
+            </select>
+            <span class="error-msg"></span>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="grade">Grade / Percentage</label>
+            <span class="input-icon">%</span>
+            <input type="text" id="grade" placeholder="e.g. 85% or 8.5 CGPA">
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="coverLetter">Cover Letter / Why Join Us?</label>
+          <span class="input-icon">W</span>
+          <textarea id="coverLetter"
+            placeholder="Tell us about yourself, your skills, and why you'd be a great fit at Graphywerse..."
+            minlength="20" required></textarea>
+          <span class="char-count">0 characters</span>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="input-group file-upload">
+          <label class="input-label">Upload Resume</label>
+          <input type="file" id="resume" accept=".pdf" required>
+          <div class="file-upload-content">
+            <span class="file-upload-icon">U</span>
+            <span class="file-upload-text" id="fileText">Drop your PDF resume here or click to browse (min 2MB)</span>
+          </div>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="input-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="agree" required>
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text">I confirm that the information provided is accurate and agree to the <a
+                href="">privacy policy</a>.</span>
+          </label>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary apply-btn">Submit Application</button>
+          <p class="form-note">We'll review your application and get back to you within 5-7 business days.</p>
+        </div>
+      </form>
+
+      <div class="apply-success" id="successMessage" style="display:none;">
+        <div class="success-icon">&#10003;</div>
+        <h2>Application Submitted!</h2>
+        <p>Thank you for applying to OUTUNIQ. Our team will review your application and reach out to you soon.</p>
+        <a href="../index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 OUTUNIQ. All rights reserved. Powered by innovation.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

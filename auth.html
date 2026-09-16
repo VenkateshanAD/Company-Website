@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Register - OUTUNIQ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="canvas-container"></div>
+  <div class="overlay"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">OUTUNIQ</a>
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="apply.html">Apply Now</a></li>
+        <li><a href="auth.html" class="active">Login</a></li>
+        <li><a href="auth.html#register">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="auth-section">
+    <div class="auth-card">
+      <div class="auth-card-inner" id="authCardInner">
+        <div class="auth-front">
+          <center>
+            <h2>Welcome Back</h2>
+            <p>Login to your OUTUNIQ account</p>
+          </center>
+          <form class="auth-form" onsubmit="return false;">
+            <div class="input-group">
+              <input type="email" placeholder="G-mail" required>
+              <span class="input-icon">@</span>
+            </div>
+            <div class="input-group">
+              <input type="password" placeholder="Password" required>
+              <span class="input-icon">*</span>
+            </div>
+            <button type="submit" class="btn btn-primary auth-btn">Login</button>
+          </form>
+          <p class="auth-switch">Don't have an account? <a href="auth.html#register" id="flipToRegister">Register</a>
+          </p>
+        </div>
+        <div class="auth-back">
+          <center>
+            <h2>Create Account</h2>
+            <p>Join the OUTUNIQ community</p>
+          </center>
+          <form class="auth-form" onsubmit="return false;">
+            <div class="input-group">
+              <input type="text" placeholder="Username" required>
+              <span class="input-icon">U</span>
+            </div>
+            <div class="input-group">
+              <input type="email" placeholder="G-mail" required>
+              <span class="input-icon">@</span>
+            </div>
+            <div class="input-group">
+              <input type="password" placeholder="Password" required>
+              <span class="input-icon">*</span>
+            </div>
+            <button type="submit" class="btn btn-primary auth-btn">Register</button>
+          </form>
+          <p class="auth-switch">Already have an account? <a href="auth.html" id="flipToLogin">Login</a></p>
+        </div>
+      </div>
+    </div>    
+  </section>
+
+  <footer>
+    <p>&copy; 2026 OUTUNIQ. All rights reserved. Powered by innovation.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var cardInner = document.getElementById('authCardInner');
+
+      function flipCard() {
+        if (cardInner) cardInner.classList.toggle('flipped');
+      }
+
+      document.getElementById('flipToRegister').addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!cardInner.classList.contains('flipped')) flipCard();
+      });
+
+      document.getElementById('flipToLogin').addEventListener('click', function (e) {
+        e.preventDefault();
+        if (cardInner.classList.contains('flipped')) flipCard();
+      });
+
+      if (window.location.hash === '#register') {
+        if (cardInner) cardInner.classList.add('flipped');
+      }
+
+      var authCardOuter = document.querySelector('.auth-card');
+      if (authCardOuter) {
+        authCardOuter.addEventListener('mousemove', function (e) {
+          var rect = authCardOuter.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          authCardOuter.style.transform = 'rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg)';
+        });
+        authCardOuter.addEventListener('mouseleave', function () {
+          authCardOuter.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>

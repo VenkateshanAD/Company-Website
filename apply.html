@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Now - OUTUNIQ Internships</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div id="canvas-container"></div>
+  <div class="overlay"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">OUTUNIQ</a>
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#internships">Internships</a></li>
+        <li><a href="apply.html" class="active">Apply Now</a></li>
+        <li><a href="auth.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="apply-section">
+    <div class="apply-container">
+      <div class="apply-header">
+        <h1 class="apply-title">Internship Application</h1>
+        <p class="apply-subtitle">Take the first step toward an epic career. Fill out the form below and our team will review your application.</p>
+      </div>
+
+      <form class="apply-form" id="applyForm" onsubmit="return handleSubmit(event)">
+
+        <div class="form-row">
+          <div class="input-group">
+            <label class="input-label">Full Name</label>
+            <input type="text" placeholder="Upper Case your Name" required>
+            <span class="input-icon">U</span>
+          </div>
+          <div class="input-group">
+            <label class="input-label">G-mail Id</label>
+            <input type="email" placeholder="@gmail.com" required>
+            <span class="input-icon">@</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <label class="input-label">Phone Number</label>
+            <input type="tel" placeholder="+91 9876543210" required>
+            <span class="input-icon">P</span>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Internship Program</label>
+            <select required>
+              <option value="" disabled selected>Select a program</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="frontend">Front Development</option>
+              <option value="data-analysis">Data Analysis</option>
+              <option value="computer-basics">Computer Basics</option>
+            </select>
+            <span class="input-icon">»</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <label class="input-label">University / College</label>
+            <input type="text" placeholder="Your institution name" required>
+            <span class="input-icon">U</span>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Field of Study</label>
+            <input type="text" placeholder="e.g. Computer Science" required>
+            <span class="input-icon">S</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <label class="input-label">Current Year</label>
+            <select required>
+              <option value="" disabled selected>Select year</option>
+              <option value="1st">1st Year</option>
+              <option value="2nd">2nd Year</option>
+              <option value="3rd">3rd Year</option>
+              <option value="4th">4th Year</option>
+              <option value="graduate">Graduate</option>
+            </select>
+            <span class="input-icon">Y</span>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Available From</label>
+            <input type="date" required>
+            <span class="input-icon">D</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Skills (comma separated)</label>
+          <input type="text" placeholder="e.g. Python, HTML, CSS, JavaScript, SQL">
+          <span class="input-icon">S</span>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Resume / CV</label>
+          <div class="file-upload">
+            <input type="file" accept=".pdf,.doc,.docx" required>
+            <div class="file-upload-content">
+              <span class="file-upload-icon">U</span>
+              <span class="file-upload-text">Drop your resume here or click to browse (PDF, DOC)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Why do you want to join Graphywerse?</label>
+          <textarea rows="5" placeholder="Tell us about your passion for gaming, technology, and what you hope to learn..." required></textarea>
+          <span class="input-icon">W</span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary apply-btn">Submit Application</button>
+          <p class="form-note">We'll review your application and get back to you within 5-7 business days.</p>
+        </div>
+      </form>
+
+      <div class="apply-success" id="applySuccess" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h2>Application Submitted!</h2>
+        <p>Thank you for applying to OUTUNIQ. Our team will review your application and reach out to you soon.</p>
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 OUTUNIQ. All rights reserved. Powered by innovation.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('applyForm').style.display = 'none';
+      document.getElementById('applySuccess').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return false;
+    }
+
+    (function () {
+      // File upload interaction
+      var fileInputs = document.querySelectorAll('.file-upload input[type="file"]');
+      fileInputs.forEach(function (input) {
+        input.addEventListener('change', function () {
+          var content = this.parentElement.querySelector('.file-upload-content');
+          if (this.files && this.files[0]) {
+            content.innerHTML = '<span class="file-upload-icon">✓</span><span class="file-upload-text">' + this.files[0].name + '</span>';
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
